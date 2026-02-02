@@ -1,15 +1,8 @@
-# EFCore.Sqlite.NodaTime
+# EFCore.InMemory.NodaTime
 
-![Build](https://github.com/khellang/EFCore.Sqlite.NodaTime/workflows/Build/badge.svg)
+![Build](https://github.com/SaulNunez/EFCore.InMemory.NodaTime/workflows/Build/badge.svg)
 
-Adds support for [NodaTime](https://github.com/nodatime/nodatime) types when using [SQLite](https://sqlite.org/) with [Entity Framework Core](https://github.com/dotnet/efcore).
+Adds support for [NodaTime](https://github.com/nodatime/nodatime) types when using [InMemory](https://learn.microsoft.com/en-us/ef/core/providers/in-memory/?tabs=dotnet-core-cli) with [Entity Framework Core](https://github.com/dotnet/efcore). The main use case is to be able to use NodaTime types as supported by other providers (e.g. SqlServer, SQLite,PostgreSQL, etc.) when running tests using the InMemory provider.
 
-Read more at [Learn Entity Framework Core](https://www.learnentityframeworkcore.com/extensions/entityframeworkcore-sqlite-nodatime)
+Read more at [Learn Entity Framework Core](https://www.learnentityframeworkcore.com/extensions/entityframeworkcore-inmemory-nodatime)
 
-## Sponsors
-
-[Entity Framework Extensions](https://entityframework-extensions.net/?utm_source=khellang&utm_medium=EFCore.Sqlite.NodaTime) and [Dapper Plus](https://dapper-plus.net/?utm_source=khellang&utm_medium=EFCore.Sqlite.NodaTime) are major sponsors and proud to contribute to the development of EFCore.Sqlite.NodaTime.
-
-[![Entity Framework Extensions](https://raw.githubusercontent.com/khellang/EFCore.Sqlite.NodaTime/master/entity-framework-extensions-major-sponsor.png)](https://entityframework-extensions.net/bulk-insert?utm_source=khellang&utm_medium=EFCore.Sqlite.NodaTime)
-
-[![Dapper Plus](https://raw.githubusercontent.com/khellang/EFCore.Sqlite.NodaTime/master/dapper-plus-sponsor.png)](https://dapper-plus.net/bulk-insert?utm_source=khellang&utm_medium=EFCore.Sqlite.NodaTime)
