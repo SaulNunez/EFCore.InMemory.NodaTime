@@ -25,20 +25,25 @@ jobs:
         run: dotnet test --collect:"XPlat Code Coverage"
 
       - name: Update codecov
-        if: ${{ startsWith(github.repository, 'khellang/') }}
         uses: codecov/codecov-action@v5
 
       - name: Pack NuGet packages (CI versions)
-        if: ${{ startsWith(github.ref, 'refs/heads/') && github.event_name == 'push' && startsWith(github.repository, 'khellang/') }}
+        if: ${{ startsWith(github.ref, 'refs/heads/') && github.event_name == 'push' }}
         run: dotnet pack --configuration Release --output nupkgs --version-suffix "ci.$(date -u +%Y%m%dT%H%M%S)+sha.${GITHUB_SHA:0:9}" -p:ContinuousIntegrationBuild=true
 
       - name: Pack NuGet packages (Release versions)
-        if: ${{ startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push' && startsWith(github.repository, 'khellang/') }}
+        if: ${{ startsWith(github.ref, 'refs/tags/v') && github.event_name == 'push' }}
         run: dotnet pack --configuration Release --output nupkgs -p:ContinuousIntegrationBuild=true
 
       - name: Upload artifacts
-        if: ${{ github.event_name == 'push' && startsWith(github.repository, 'khellang/') }}
+        if: ${{ github.event_name == 'push' }}
         uses: actions/upload-artifact@v4
         with:
-          name: EFCore.Sqlite.NodaTime
+          name: EFCore.InMemory.NodaTime
           path: nupkgs
+
+      - name: Publish to GitHub Packages
+        if: ${{ github.event_name == 'push' }}
+        run: |
+          dotnet nuget add source --username "${{ github.repository_owner }}" --password "${{ secrets.GITHUB_TOKEN }}" --store-password-in-clear-text --name github "https://nuget.pkg.github.com/${{ github.repository_owner }}/index.json"
+          dotnet nuget push "nupkgs/*.nupkg" --source "github" --api-key "${{ secrets.GITHUB_TOKEN }}" --skip-duplicate
