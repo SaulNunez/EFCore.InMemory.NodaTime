@@ -1,0 +1,31 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <PackageProjectUrl>https://github.com/khellang/EFCore.InMemory.NodaTime</PackageProjectUrl>
+    <PackageTags>Entity Framework Core;entity-framework-core;ef;efcore;orm;inmemory;NodaTime</PackageTags>
+    <Description>Adds support for NodaTime types when using InMemory with Entity Framework Core.</Description>
+    <RepositoryUrl>https://github.com/khellang/EFCore.InMemory.NodaTime</RepositoryUrl>
+    <RootNamespace>Microsoft.EntityFrameworkCore.InMemory</RootNamespace>
+    <AssemblyName>EntityFrameworkCore.InMemory.NodaTime</AssemblyName>
+    <PackageId>EntityFrameworkCore.InMemory.NodaTime</PackageId>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <TargetFramework>net8.0</TargetFramework>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="build\**\*">
+      <Pack>True</Pack>
+      <PackagePath>build</PackagePath>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\README.md" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.InMemory" />
+    <PackageReference Include="MinVer" />
+    <PackageReference Include="NodaTime" />
+  </ItemGroup>
+</Project>
